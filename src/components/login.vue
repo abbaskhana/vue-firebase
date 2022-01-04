@@ -19,11 +19,11 @@
                     <div class="mt-12 w-full px-2 sm:px-6">
                         <div class="flex flex-col mt-5">
                             <label for="email" class="text-lg font-semibold leading-tight">Email</label>
-                            <input required id="email" name="email" v-model="email" @click="messageError=''" class="h-10 px-2 w-full rounded mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 border-gray-300 border shadow" type="email" />
+                            <input required id="email" name="email" v-model="email" @click="refresh()" class="h-10 px-2 w-full rounded mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 border-gray-300 border shadow" type="email" />
                         </div>
                         <div class="flex flex-col mt-5">
                             <label for="password" class="text-lg font-semibold fleading-tight">Password</label>
-                            <input required id="password" v-model="password" name="password" class="h-10 px-2 w-full rounded mt-2 text-gray-600 focus:outline-none focus:border dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 focus:border-indigo-700 border-gray-300 border shadow" type="password" />
+                            <input required id="password" @click="refresh()" v-model="password" name="password" class="h-10 px-2 w-full rounded mt-2 text-gray-600 focus:outline-none focus:border dark:focus:border-indigo-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 focus:border-indigo-700 border-gray-300 border shadow" type="password" />
                         </div>
                     </div>
                     <div class="pt-6 w-full flex justify-between px-2 sm:px-6">
@@ -93,6 +93,10 @@ export default {
          this.auth = getAuth();
     },
     methods: {
+        refresh(){
+           this.message=false,
+            this.messageError="" 
+        }
 //         async loginUser (){
 //             this.disabledButton="opacity-50 cursor-not-allowed"
 //            const { user, session, error } = await supabase.auth.signIn({
