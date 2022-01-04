@@ -96,7 +96,7 @@ export default {
         refresh(){
            this.message=false,
             this.messageError="" 
-        }
+        },
 //         async loginUser (){
 //             this.disabledButton="opacity-50 cursor-not-allowed"
 //            const { user, session, error } = await supabase.auth.signIn({
